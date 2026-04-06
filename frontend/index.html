@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome | Eventa</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="auth-page">
+    <div class="glass-container auth-box">
+        <h1 class="brand-title">Eventa</h1>
+        <p class="brand-subtitle">Plan your perfect wedding & manage guests effortlessly</p>
+
+        <!-- Login Form -->
+        <div id="login-section">
+            <h2>Sign In</h2>
+            <form id="login-form">
+                <div class="input-group">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" required placeholder="Enter your email">
+                </div>
+                <div class="input-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" required placeholder="Enter your password">
+                </div>
+                <button type="submit" class="btn primary-btn submit-btn">
+                    <span class="btn-text">Login</span>
+                    <span class="spinner hidden">⚙️</span>
+                </button>
+            </form>
+            <p class="toggle-text">Don't have an account? <span class="link-text" onclick="toggleAuth('register')">Register here</span></p>
+        </div>
+
+        <!-- Register Form -->
+        <div id="register-section" class="hidden">
+            <h2>Create Account</h2>
+            <form id="register-form">
+                <div class="input-group">
+                    <label for="reg-name">Full Name</label>
+                    <input type="text" id="reg-name" required placeholder="John Doe">
+                </div>
+                <div class="input-group">
+                    <label for="reg-email">Email</label>
+                    <input type="email" id="reg-email" required placeholder="Enter your email">
+                </div>
+                <div class="input-group">
+                    <label for="reg-password">Password</label>
+                    <input type="password" id="reg-password" required placeholder="Create a password">
+                </div>
+                <button type="submit" class="btn primary-btn submit-btn">
+                    <span class="btn-text">Register</span>
+                    <span class="spinner hidden">⚙️</span>
+                </button>
+            </form>
+            <p class="toggle-text">Already have an account? <span class="link-text" onclick="toggleAuth('login')">Login here</span></p>
+        </div>
+
+        <div id="auth-message" class="message hidden"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

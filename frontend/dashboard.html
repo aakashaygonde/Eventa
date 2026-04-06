@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Eventa</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="dashboard-page">
+    <nav class="navbar glass-nav">
+        <div class="nav-brand">Eventa Dashboard</div>
+        <div class="nav-user">
+            <span id="user-name-display">Welcome!</span>
+            <button class="btn logout-btn" onclick="logout()">Logout</button>
+        </div>
+    </nav>
+
+    <main class="dashboard-container">
+        <!-- Events Section -->
+        <section class="events-section glass-panel">
+            <div class="panel-header">
+                <h2>Your Events</h2>
+                <button class="btn secondary-btn" onclick="toggleForm('event-form-container')">+ New Event</button>
+            </div>
+            
+            <div id="event-form-container" class="hidden form-wrap">
+                <form id="create-event-form">
+                    <div class="input-line">
+                        <div class="input-group">
+                            <label>Event Title</label>
+                            <input type="text" id="event-title" required placeholder="e.g. John & Jane Wedding">
+                        </div>
+                        <div class="input-group">
+                            <label>Date</label>
+                            <input type="date" id="event-date" required>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label>Venue</label>
+                        <input type="text" id="event-venue" required placeholder="Event location">
+                    </div>
+                    <button type="submit" class="btn primary-btn submit-btn">
+                        <span class="btn-text">Create Event</span>
+                        <span class="spinner hidden">⚙️</span>
+                    </button>
+                </form>
+            </div>
+
+            <div id="events-list" class="cards-grid">
+                <!-- Event Cards will be inserted here -->
+            </div>
+        </section>
+
+        <!-- Guests Section (Hidden until event is selected) -->
+        <section id="guest-section" class="guests-section glass-panel hidden">
+            <div class="panel-header">
+                <h2>Guest List: <span id="current-event-name" class="highlight-text"></span></h2>
+                <button class="btn close-btn" onclick="closeGuestManager()">Back to Events</button>
+            </div>
+            
+            <div class="add-guest-wrapper">
+                <h3>Add New Guest</h3>
+                <form id="add-guest-form" class="inline-form">
+                    <input type="text" id="guest-name" required placeholder="Guest Name">
+                    <input type="tel" id="guest-phone" required placeholder="Phone Number">
+                    <select id="guest-category" required>
+                        <option value="" disabled selected>Category</option>
+                        <option value="Family">Family</option>
+                        <option value="Friends">Friends</option>
+                        <option value="Colleagues">Colleagues</option>
+                        <option value="VIP">VIP</option>
+                    </select>
+                    <button type="submit" class="btn primary-btn submit-btn">
+                        <span class="btn-text">Add Guest</span>
+                        <span class="spinner hidden">⚙️</span>
+                    </button>
+                </form>
+            </div>
+
+            <div id="rsvp-summary" class="summary-cards">
+                <div class="summary-card">
+                    <h4>Total Guests</h4>
+                    <span id="total-guests-count" class="count-badge">0</span>
+                </div>
+                <div class="summary-card">
+                    <h4>Attending</h4>
+                    <span id="attending-count" class="count-badge success">0</span>
+                </div>
+                <div class="summary-card">
+                    <h4>Declined</h4>
+                    <span id="declined-count" class="count-badge danger">0</span>
+                </div>
+                <div class="summary-card">
+                    <h4>Pending</h4>
+                    <span id="pending-count" class="count-badge warning">0</span>
+                </div>
+            </div>
+
+            <div class="table-container">
+                <table id="guests-table" class="glass-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Phone</th>
+                            <th>Category</th>
+                            <th>RSVP Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="guests-list">
+                        <!-- Guest rows here -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <div id="toast-message" class="toast hidden"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
