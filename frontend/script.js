@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:5000/api';
+const API_URL = '/api';
 
 // Utility: Show Toast Message
 function showToast(message, isError = false) {
