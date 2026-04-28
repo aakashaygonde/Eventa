@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const connectDB = async () => {
     try {
-        const conn = await mongoose.connect("mongodb+srv://deshmukharya2803_db_user:<WvnhOnp4AWdBrCLC>@cluster0.azvo3o8.mongodb.net/?Eventa=Cluster0", {
+        const conn = await mongoose.connect("process.env.MONGO_URI", {
             // Options are parsed automatically in newer versions of Mongoose
         });
         console.log(`MongoDB Connected: ${conn.connection.host}`);
